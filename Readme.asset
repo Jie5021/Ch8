@@ -1,37 +1,18 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
-  m_Name: Readme
-  m_EditorClassIdentifier: 
-  commonStyle: {fileID: 7433441132597879392, guid: d2c670ece470f4c4fa6712b8dc28a9bb, type: 3}
-  darkStyle: {fileID: 7433441132597879392, guid: 1f902e57f049a7f47986618de93f5ee1, type: 3}
-  lightStyle: {fileID: 7433441132597879392, guid: 69e7ab73923f93149821ac3a88b84856, type: 3}
-  icon: {fileID: 2800000, guid: 727a75301c3d24613a3ebcec4a24c2c8, type: 3}
-  title: URP Empty Template
-  sections:
-  - heading: Welcome to the Universal Render Pipeline
-    text: This template includes the settings and assets you need to start creating with the Universal Render Pipeline.
-    linkText: 
-    url:
-  - heading: URP Documentation
-    text:
-    linkText: Read more about URP
-    url: https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest
-  - heading: Forums
-    text:
-    linkText: Get answers and support
-    url: https://forum.unity.com/forums/universal-render-pipeline.383/
-  - heading: Report bugs
-    text:
-    linkText: Submit a report
-    url: https://unity3d.com/unity/qa/bug-reporting
-  loadedLayout: 1
+## 關卡設計（Level Design）
+
+本遊戲單局總時長為 **30 秒**，隨剩餘時間推進分為 **4 個階段**。每次進入新階段時，畫面會短暫顯示關卡名稱 **1.5 秒**，並動態調整硬幣的生成間隔、掉落速度與金幣／銀幣生成機率；倒數歸零後會顯示 `Time Up!` 並停止所有硬幣生成與角色移動。
+
+### 硬幣計分規則
+* **金幣（Gold）**：+1000 分
+* **銀幣（Silver）**：+100 分
+* **銅幣（Bronze）**：+10 分
+
+### 各階段硬幣生成參數
+
+| 關卡 | 剩餘時間區間 | 生成間隔（秒） | 掉落速度 | 金幣生成機率 | 銀幣生成機率 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **Level 1** | 30s ~ 20s | `1.0` | `-0.04` | `20%` | `30%` |
+| **Level 2** | 20s ~ 10s | `0.8` | `-0.05` | `20%` | `40%` |
+| **Level 3** | 10s ~ 5s | `0.5` | `-0.07` | `30%` | `40%` |
+| **Level 4** | 5s ~ 0s | `0.6` | `-0.06` | `30%` | `50%` |
+| **Time Up** | 0s | 停止生成 | `0` | `0%` | `0%` |
